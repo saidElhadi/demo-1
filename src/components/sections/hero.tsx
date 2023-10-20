@@ -7,10 +7,30 @@ interface NewsHeaderProps {
 }
 
 function Hero() {
+  const data: ArticleProps[] = [
+    {
+      id: 1,
+      src: "/images/image-gaming-growth.jpg",
+      title: "Lorem title",
+      text: "Laboris sint quis qui nisi cupidatat excepteur.",
+    },
+    {
+      id: 2,
+      src: "/images/image-gaming-growth.jpg",
+      title: "Lorem title",
+      text: "Est laborum eu ex sunt Lorem est id quis ut.",
+    },
+    {
+      id: 3,
+      src: "/images/image-gaming-growth.jpg",
+      title: "Lorem title",
+      text: "Lorem nulla excepteur nulla fugiat.",
+    },
+  ];
   return (
     <div className="py-3 p-3 md:px-0 my-3 lg:px-20 mx-auto h-fit md:h-[450px] py-auto flex flex-col gap-5 md:flex-row md:mx-0 relative">
       <div className="mx-auto w-full md:w-2/3 md:mx-0 h-[620px] flex flex-col justify-evenly md:block">
-        <div className="w-full h-[200px] md:h-3/5 relative">
+        <div className="w-full h-[200px] md:h-2/5 relative">
           <Image
             src="/images/image-web-3-desktop.jpg"
             fill
@@ -18,25 +38,26 @@ function Hero() {
             className=""
           />
         </div>
-        <div className="flex flex-col md:flex-row justify-evenly h-2/5 ">
-          <h1 className="h-full auto w-full font-extrabold text-5xl md:p-4">
+        <div className="flex flex-col md:flex-row justify-evenly h-2/6 items-center">
+          <h1 className="w-full font-extrabold text-[2.5rem] md:p-4 ">
             The Bright Future of Web 3.0?
           </h1>
           <div className="flex flex-col justify-between h-fit ">
-            <div className="p-5 flex flex-col justify-between h-fit w-full">
+            <div className=" flex flex-col justify-between h-fit w-full">
               <p className="font-regular text-sm pt-4">
                 Mollit sint incididunt non eiusmod anim. Amet nulla esse ex nisi
                 sunt et non anim voluptate commodo commodo in voluptate nisi.
                 Laboris eu esse fugiat pariatur dolore.
               </p>
             </div>
-            <button className=" m-5 block w-1/2 h-9 bg-soft-red bold text-white hover:bg-very-dark-blue transition-all duration-200">
+            <button className="m-2 ml-0 md:m-5 block w-1/2 h-9 bg-soft-red bold text-white hover:bg-very-dark-blue transition-all duration-200">
               READ MORE
             </button>
           </div>
         </div>
       </div>
       <News></News>
+      <Articles data={data} />
     </div>
   );
 }
@@ -71,6 +92,46 @@ const NewsHeader: React.FC<NewsHeaderProps> = ({ title, content }) => {
         {title}
       </h2>
       <p className="text-dark-grayish-blue font-sm text-md">{content}</p>
+    </div>
+  );
+};
+const Articles = ({data}:any & ArticleProps[]) => {
+  return (
+    <div
+      className="flex flex-col md:flex-row 
+    border border-green-300"
+    >
+      {data.map(
+        (elem:ArticleProps) => { 
+          return(
+            <Article 
+              src={elem.src}
+              id={elem.id}
+              key={elem.id}
+              text={elem.text}
+              title={elem.title}
+            />
+          )
+         }
+      )}
+    </div>
+  );
+};
+type ArticleProps = {
+  id?: number;
+  src?: string;
+  title?: string;
+  text?: string;
+};
+const Article = ({ id, src, title, text }: ArticleProps) => {
+  return (
+    <div className="flex pt-3 pb-3">
+      <img className="w-1/3" src={src} alt={`img of a ${src}`} />
+      <div>
+        <h1 className="p-2">0{id}</h1>
+        <h1 className="p-2">{title}</h1>
+        <p className="pl-2">{text}</p>
+      </div>
     </div>
   );
 };
