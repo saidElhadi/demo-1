@@ -20,18 +20,30 @@ function Navbar() {
 
       {/* {desktop} */}
       <ul className={`my-auto hidden md:flex`}>
-        <li className="px-2 text-center">Home</li>
-        <li className="px-2 text-center">New</li>
-        <li className="px-2 text-center">Popular</li>
-        <li className="px-2 text-center">Trending</li>
-        <li className="px-2 text-center">Categories</li>
+        <li className="px-2 text-center cursor-pointer hover:text-soft-orange hover:font-semibold transition-all">
+          Home
+        </li>
+        <li className="px-2 text-center cursor-pointer hover:text-soft-orange hover:font-semibold transition-all">
+          New
+        </li>
+        <li className="px-2 text-center cursor-pointer hover:text-soft-orange hover:font-semibold transition-all">
+          Popular
+        </li>
+        <li className="px-2 text-center cursor-pointer hover:text-soft-orange hover:font-semibold transition-all">
+          Trending
+        </li>
+        <li className="px-2 text-center cursor-pointer hover:text-soft-orange hover:font-semibold transition-all">
+          Categories
+        </li>
       </ul>
       {/* {mobile} */}
       <div className="my-auto md:hidden">
         <div className="p-3 transition-all">
           <div
             onClick={toggleMobileMenu}
-            className={`w-8 h-7 relative ${isMobileMenuOpen ? "" : "hidden"}`}
+            className={`z-20 w-8 h-7 relative ${
+              isMobileMenuOpen ? "" : "hidden"
+            }`}
           >
             <Image
               src={"images/icon-menu-close.svg"}
@@ -41,21 +53,38 @@ function Navbar() {
           </div>
           <div
             onClick={toggleMobileMenu}
-            className={`w-8 h-7 relative ${isMobileMenuOpen ? "hidden" : ""}`}
+            className={`z-20 w-8 h-7 relative ${
+              isMobileMenuOpen ? "hidden" : ""
+            }`}
           >
             <Image src={"images/icon-menu.svg"} alt="menu icon open" fill />
           </div>
         </div>
 
-        <ul
-          className={`bg-off-white rounded-md my-auto absolute left-[50%] transform -translate-x-[50%] flex flex-col transition-all ${isMobileMenuOpen ? "top-20" : "-top-32"}`}
+
+        <div
+          className={`
+          w-2/3
+          h-full
+          bg-off-white
+          z-10
+          flex flex-col 
+          absolute  
+          top-0
+          transition-all ${isMobileMenuOpen ? "right-0" : "-right-96"}
+          
+          `}
         >
-          <li className="px-2 text-center">Home</li>
-          <li className="px-2 text-center">New</li>
-          <li className="px-2 text-center">Popular</li>
-          <li className="px-2 text-center">Trending</li>
-          <li className="px-2 text-center">Categories</li>
-        </ul>
+          <ul className="
+          pt-[150px]
+          ">
+            <li className="p-3 text-xl">Home</li>
+            <li className="p-3 text-xl">New</li>
+            <li className="p-3 text-xl">Popular</li>
+            <li className="p-3 text-xl">Trending</li>
+            <li className="p-3 text-xl">Categories</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
