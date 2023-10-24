@@ -1,10 +1,1 @@
-favicon-32x32.png
-icon-menu-close.svg
-icon-menu.svg
-image-gaming-growth.jpg
-image-retro-pcs.jpg
-image-top-laptops.jpg
-image-web-3-desktop.jpg
-image-web-3-mobile.jpg
-logo.svg
-ls.txt
+

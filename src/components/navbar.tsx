@@ -37,7 +37,7 @@ function Navbar() {
         </li>
       </ul>
       {/* {mobile} */}
-      <div className="my-auto md:hidden">
+      <div className="my-auto md:hidden overflow-hidden">
         <div className="p-3 transition-all">
           <div
             onClick={toggleMobileMenu}
@@ -61,7 +61,17 @@ function Navbar() {
           </div>
         </div>
 
-
+        <div
+          className={`
+            left-0
+            top-0
+            h-full w-full
+            absolute 
+            bg-black
+            opacity-40
+            z-10
+            transition-all ${isMobileMenuOpen ? "block" : "hidden"}`}
+        ></div>
         <div
           className={`
           w-2/3
@@ -75,9 +85,11 @@ function Navbar() {
           
           `}
         >
-          <ul className="
+          <ul
+            className="
           pt-[150px]
-          ">
+          "
+          >
             <li className="p-3 text-xl">Home</li>
             <li className="p-3 text-xl">New</li>
             <li className="p-3 text-xl">Popular</li>
